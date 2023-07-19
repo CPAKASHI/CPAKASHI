@@ -1,87 +1,46 @@
 /* Общие стили для всего документа */
 body {
-  font-family: Brush Script MT, Brush Script Std, cursive;
+  font-family: Arial, sans-serif;
   line-height: 1.6;
   margin: 0;
   padding: 0;
-  color: var(--tg-theme-teext-color);
-  background: var(--tg-theme-bg-color);
+}
 
-/* Заголовки */
+/* Стили для заголовка h1 */
 h1 {
   color: #007bff;
   font-size: 32px;
-  text-align: center;}
-
-h2 {
-  font-size: 20px;
+  text-align: center;
+  margin-bottom: 20px;
 }
 
-h3 {
-  font-size: 18px;
+/* Стили для абзаца p */
+p {
+  font-size: 16px;
+  line-height: 1.6;
+  margin-bottom: 20px;
 }
 
-/* Ссылки */
-a {
-  color: #007bff;
-  text-decoration: none;
-}
-
-a:hover {
-  text-decoration: underline;
-}
-
-/* Кнопки */
-.button {
-  display: inline-block;
+/* Стили для кнопки с идентификатором "buy" */
+#buy {
+  display: block;
+  margin: 0 auto;
   padding: 10px 20px;
-  background-color: #007bff;
-  color: var(--tg-theme-button-text-color);
-  text-decoration: none;
-  border-radius: 4px;
-}
-
-.button:hover {
-  background-color: #0056b3;
-}
-
-/* Оформление таблиц */
-table {
-  border-collapse: collapse;
-  width: 100%;
-}
-
-th, td {
-  border: 1px solid #ccc;
-  padding: 8px;
-  text-align: left;
-}
-
-/* Оформление форм */
-form {
-  margin: 20px 0;
-}
-
-input[type="text"],
-input[type="email"],
-input[type="password"],
-textarea {
-  width: 100%;
-  padding: 8px;
-  margin-bottom: 10px;
-  border: 1px solid #ccc;
-  border-radius: 4px;
-}
-
-input[type="submit"] {
   background-color: #007bff;
   color: #fff;
-  padding: 10px 20px;
   border: none;
   border-radius: 4px;
   cursor: pointer;
 }
 
-input[type="submit"]:hover {
+#buy:hover {
   background-color: #0056b3;
+}
+
+/* Стили для изображения */
+img {
+  display: block;
+  margin: 0 auto;
+  max-width: 100%;
+  height: auto;
 }
