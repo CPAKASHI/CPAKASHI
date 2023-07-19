@@ -20,6 +20,7 @@ p {
   font-size: 16px;
   line-height: 1.6;
   margin-bottom: 20px;
+  color: var(--tg-theme-text-color);
 }
 
 /* Стили для кнопки с идентификатором "buy" */
