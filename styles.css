@@ -4,12 +4,14 @@ body {
   line-height: 1.6;
   margin: 0;
   padding: 0;
+  color: var(--tg-theme-teext-color);
 }
 
 /* Заголовки */
 h1 {
-  font-size: 24px;
-}
+  color: #007bff;
+  font-size: 32px;
+  text-align: center;}
 
 h2 {
   font-size: 20px;
