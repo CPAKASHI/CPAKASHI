@@ -5,7 +5,7 @@ body {
   margin: 0;
   padding: 0;
   color: var(--tg-theme-teext-color);
-}
+  background: var(--tg-theme-bg-color);
 
 /* Заголовки */
 h1 {
