@@ -36,7 +36,7 @@ a:hover {
   display: inline-block;
   padding: 10px 20px;
   background-color: #007bff;
-  color: #fff;
+  color: var(--tg-theme-button-text-color);
   text-decoration: none;
   border-radius: 4px;
 }
