@@ -7,17 +7,65 @@
     <title>Shop</title>
     <style>
         body {
-          font-family: Bradley Hand, cursive;
-          line-height: 1.6;
-          margin: 0;
-          padding: 0;
-          background: var(--tg-theme-bg-color);
+            font-family: Bradley Hand, cursive;
+            line-height: 1.6;
+            margin: 0;
+            padding: 0;
+            background: var(--tg-theme-bg-color);
+        }
+
+        #main {
+            text-align: center;
+            margin: 50px auto;
+        }
+
+        h1 {
+            color: #007bff;
+            font-size: 32px;
+            margin-bottom: 20px;
+        }
+
+        img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            margin-bottom: 20px;
+        }
+
+        p {
+            font-size: 16px;
+            line-height: 1.6;
+            margin-bottom: 20px;
+        }
+
+        button {
+            background-color: #007bff;
+            color: #fff;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: #0056b3;
+        }
+
+        /* Стили для всплывающих полей */
+        .hidden-inputs {
+            display: none;
+            text-align: center;
+        }
+
+        .hidden-inputs input {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 10px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
         }
     </style>
-    
-
-    <!-- Добавляем ссылку на файл со стилями -->
-    <link rel="stylesheet" href="styles.css">
 </head>
 <body>
     <div id="main">
@@ -25,8 +73,27 @@
         <img src="https://imageup.ru/img156/4439305/podpi.jpg">
         <p>После подключения подписки, вам будет открыт доступ ко всем нашим услугам на 30 дней!</p>
         <p>* Плата в размере 199р списывается каждые 30 дней</p>
-<button id="buy">Подписаться за 199р/мес</button>
+        <button id="buy">Подписаться за 199р/мес</button>
+        <!-- Всплывающие поля для email, phone, name, pass -->
+        <div class="hidden-inputs" id="hiddenInputs">
+            <input type="email" placeholder="Введите ваш email">
+            <input type="text" placeholder="Введите ваш телефон">
+            <input type="text" placeholder="Введите ваше имя">
+            <input type="password" placeholder="Введите пароль">
+            <!-- Добавьте здесь ещё поля, если необходимо -->
+            <button id="subscribeBtn">Подписаться</button>
+        </div>
     </div>
-    <script src="https://telegram.org/js/telegram-web-app.js"></script>
+    <script>
+        document.getElementById("buy").addEventListener("click", function () {
+            const hiddenInputs = document.getElementById("hiddenInputs");
+            hiddenInputs.style.display = "block";
+        });
+
+        document.getElementById("subscribeBtn").addEventListener("click", function () {
+            // Здесь вы можете обработать значения полей и выполнить необходимые действия
+            alert("Вы успешно подписались!");
+        });
+    </script>
 </body>
 </html>
