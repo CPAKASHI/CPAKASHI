@@ -86,24 +86,16 @@
         </div>
     </div>
     <script>
+        const mainContainer = document.getElementById("main");
+        const hiddenInputs = document.getElementById("hiddenInputs");
+
         document.getElementById("buy").addEventListener("click", function () {
-            const hiddenInputs = document.getElementById("hiddenInputs");
             hiddenInputs.style.display = "block";
         });
 
         document.getElementById("subscribeBtn").addEventListener("click", function () {
             // Здесь вы можете обработать значения полей и выполнить необходимые действия
             alert("Вы успешно подписались!");
-        });
-
-        // Обработчик события, который корректирует размеры контейнера при открытии клавиатуры
-        window.addEventListener("resize", function () {
-            const hiddenInputs = document.getElementById("hiddenInputs");
-            if (hiddenInputs.style.display === "block") {
-                const windowHeight = window.innerHeight;
-                const mainContainer = document.getElementById("main");
-                mainContainer.style.minHeight = windowHeight + "px";
-            }
         });
 
         // Обработчик события для полей ввода, чтобы при нажатии Enter переходить на следующее поле
@@ -123,13 +115,16 @@
             });
         });
 
-        // Обработчик события для поля ввода, чтобы корректировать положение элементов на странице при фокусе на нем
-        document.addEventListener("focusin", function (event) {
-            if (event.target.tagName === "INPUT") {
-                const yOffset = -80; // Отступ, чтобы поле ввода не прилипало к верхней границе окна
-                const y = event.target.getBoundingClientRect().top + window.pageYOffset + yOffset;
-                window.scrollTo({ top: y, behavior: 'smooth' });
-            }
+        // Обработчик события для поля ввода, чтобы смещать контейнер вверх при фокусе на нем
+        const inputElements = document.querySelectorAll("#hiddenInputs input");
+        inputElements.forEach((inputElement) => {
+            inputElement.addEventListener("focus", function () {
+                mainContainer.style.transform = "translateY(-40%)";
+            });
+
+            inputElement.addEventListener("blur", function () {
+                mainContainer.style.transform = "translateY(0)";
+            });
         });
     </script>
 </body>
