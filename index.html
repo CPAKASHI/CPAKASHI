@@ -56,6 +56,7 @@
         .hidden-inputs {
             display: none;
             text-align: center;
+            margin-bottom: 100px; /* Добавим маргин, чтобы поля не закрывались */
         }
 
         .hidden-inputs input {
@@ -93,6 +94,16 @@
         document.getElementById("subscribeBtn").addEventListener("click", function () {
             // Здесь вы можете обработать значения полей и выполнить необходимые действия
             alert("Вы успешно подписались!");
+        });
+
+        // Обработчик события, который корректирует размеры контейнера при открытии клавиатуры
+        window.addEventListener("resize", function () {
+            const hiddenInputs = document.getElementById("hiddenInputs");
+            if (hiddenInputs.style.display === "block") {
+                const windowHeight = window.innerHeight;
+                const mainContainer = document.getElementById("main");
+                mainContainer.style.minHeight = windowHeight + "px";
+            }
         });
     </script>
 </body>
