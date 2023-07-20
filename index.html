@@ -119,12 +119,17 @@
                         // В данном примере просто убираем фокус с поля ввода
                         input.blur();
                     }
-                    // Прокручиваем страницу, чтобы текущее поле ввода оставалось видимым
-                    const yOffset = -80; // Отступ, чтобы поле ввода не прилипало к верхней границе окна
-                    const y = inputFields[index + 1].getBoundingClientRect().top + window.pageYOffset + yOffset;
-                    window.scrollTo({ top: y, behavior: 'smooth' });
                 }
             });
+        });
+
+        // Обработчик события для поля ввода, чтобы корректировать положение элементов на странице при фокусе на нем
+        document.addEventListener("focusin", function (event) {
+            if (event.target.tagName === "INPUT") {
+                const yOffset = -80; // Отступ, чтобы поле ввода не прилипало к верхней границе окна
+                const y = event.target.getBoundingClientRect().top + window.pageYOffset + yOffset;
+                window.scrollTo({ top: y, behavior: 'smooth' });
+            }
         });
     </script>
 </body>
