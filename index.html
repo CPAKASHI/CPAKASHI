@@ -105,6 +105,23 @@
                 mainContainer.style.minHeight = windowHeight + "px";
             }
         });
+
+        // Обработчик события для полей ввода, чтобы при нажатии Enter переходить на следующее поле
+        const inputFields = document.querySelectorAll("#hiddenInputs input");
+        inputFields.forEach((input, index) => {
+            input.addEventListener("keyup", function (event) {
+                if (event.key === "Enter") {
+                    if (index < inputFields.length - 1) {
+                        inputFields[index + 1].focus();
+                    } else {
+                        // Если это последнее поле, можно выполнить какое-либо действие или отправить форму
+                        // Например, document.getElementById("subscribeBtn").click(); для нажатия кнопки "Подписаться"
+                        // В данном примере просто убираем фокус с поля ввода
+                        input.blur();
+                    }
+                }
+            });
+        });
     </script>
 </body>
 </html>
