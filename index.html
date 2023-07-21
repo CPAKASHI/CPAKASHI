@@ -37,7 +37,7 @@
             font-size: 16px;
             line-height: 1.6;
             margin-bottom: 20px;
-            color: var(--tg-theme-text-color):
+            color: var(--tg-theme-text-color);
         }
 
         button {
@@ -132,14 +132,20 @@
     <script>
         let tg = window.Telegram.WebApp;
         let buy = document.getElementById("buy");
-        let order = document.getElementById("order");
+        let hiddenInputs = document.getElementById("hiddenInputs");
+        let user_name = document.getElementById("user_name");
+
+    <input type="text" id="user_name" placeholder="Введите ваше имя" value="">
 
         buy.addEventListener("click", () => {
-            document.getElementById("main").style = "none";
-            document.getElementById("form").style = "block";
-            document.getElementById("user_name").value = tg.initDataUnsafe.user.first_name + " " +
-            
-        });
+    // Убираем стили display у main и hiddenInputs
+    document.getElementById("main").style.display = "none";
+    document.getElementById("hiddenInputs").style.display = "block";
+    
+    // Автоматически заполняем поле "Введите ваше имя"
+    user_name.value = tg.initDataUnsafe.user.first_name || '';
+});
+
 
         
     </script>
