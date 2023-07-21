@@ -130,14 +130,14 @@
     </script>
     <script src="https://telegram.org/js/telegram-web-app.js"></script>
     <script>
-        let tg = window.Telegram.WebApp;
-        let buy = document.getElementById("buy");
-        let hiddenInputs = document.getElementById("hiddenInputs");
-        let user_name = document.getElementById("user_name");
+       let tg = window.Telegram.WebApp;
+let buy = document.getElementById("buy");
+let hiddenInputs = document.getElementById("hiddenInputs");
+let user_name = document.getElementById("user_name");
 
-    <input type="text" id="user_name" placeholder="Введите ваше имя" value="">
+<input type="text" id="user_name" placeholder="Введите ваше имя" value="">
 
-        buy.addEventListener("click", () => {
+buy.addEventListener("click", () => {
     // Убираем стили display у main и hiddenInputs
     document.getElementById("main").style.display = "none";
     document.getElementById("hiddenInputs").style.display = "block";
