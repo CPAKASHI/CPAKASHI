@@ -6,7 +6,67 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Shop</title>
     <style>
-        /* Ваши стили остаются без изменений */
+        body {
+            font-family: Bradley Hand, cursive;
+            line-height: 1.6;
+            margin: 0;
+            padding: 0;
+            background: var(--tg-theme-bg-color);
+        }
+
+        #main {
+            text-align: center;
+            margin: 50px auto;
+        }
+
+        h1 {
+            color: #007bff;
+            font-size: 32px;
+            margin-bottom: 20px;
+        }
+
+        img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            margin-bottom: 20px;
+        }
+
+        p {
+            font-size: 16px;
+            line-height: 1.6;
+            margin-bottom: 20px;
+            color: var(--tg-theme-text-color);
+        }
+
+        button {
+            background-color: #007bff;
+            color: #fff;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: #0056b3;
+        }
+
+        /* Стили для всплывающих полей */
+        .hidden-inputs {
+            display: none;
+            text-align: center;
+            margin-bottom: 100px; /* Добавим маргин, чтобы поля не закрывались */
+        }
+
+        .hidden-inputs input {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 10px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
     </style>
 </head>
 <body>
@@ -27,8 +87,10 @@
         </div>
     </div>
     <script>
+        const mainContainer = document.getElementById("main");
+        const hiddenInputs = document.getElementById("hiddenInputs");
+
         document.getElementById("buy").addEventListener("click", function () {
-            const hiddenInputs = document.getElementById("hiddenInputs");
             hiddenInputs.style.display = "block";
         });
 
@@ -51,6 +113,18 @@
                         input.blur();
                     }
                 }
+            });
+        });
+
+        // Обработчик события для поля ввода, чтобы смещать контейнер вверх при фокусе на нем
+        const inputElements = document.querySelectorAll("#hiddenInputs input");
+        inputElements.forEach((inputElement) => {
+            inputElement.addEventListener("focus", function () {
+                mainContainer.style.transform = "translateY(-40%)";
+            });
+
+            inputElement.addEventListener("blur", function () {
+                mainContainer.style.transform = "translateY(0)";
             });
         });
     </script>
